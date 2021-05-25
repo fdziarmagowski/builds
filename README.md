@@ -1,5 +1,4 @@
-# Miscellaneous packages built with Docker/Podman in Debian
-
+# Miscellaneous packages built with Docker/Podman
 The viewer discretion is advised:
 builds packages in containers and installs into locally mounted directories, preferably with Podman (rootless)
 
