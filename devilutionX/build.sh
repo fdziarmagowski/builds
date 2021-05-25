@@ -38,8 +38,8 @@ make -j$(getconf _NPROCESSORS_ONLN)
 make DESTDIR=/build/dist-inst install
 
 objcopy --only-keep-debug \
-  /build/dist-inst/opt/devilutionX/devilutionx \
-  /build/dist-inst/opt/devilutionX/devilutionx.dbg
+  /build/dist-inst/opt/devilutionX/bin/devilutionx \
+  /build/dist-inst/opt/devilutionX/bin/devilutionx.dbg
 
 objcopy --strip-unneeded \
-  /build/dist-inst/opt/devilutionX/devilutionx
+  /build/dist-inst/opt/devilutionX/bin/devilutionx
