@@ -2,6 +2,8 @@
 
 set -eux
 
+repository_url="https://git.sr.ht/~julienxx/asuka"
+
 export DEBIAN_FRONTEND="noninteractive"
 
 apt update
@@ -15,17 +17,18 @@ apt install -y --no-install-recommends \
   libssl-dev \
   pkg-config
 
-rm -rf /build/repository/target/*
+rm -rf /build/dist-inst
 
 if ! git ls-remote /build/repository -q >/dev/null 2>&1; then
-  git clone https://git.sr.ht/~julienxx/asuka /build/repository
+  git clone $repository_url /build/repository
+  git -C /build/repository submodule update --init --recursive
 else
   git --work-tree=/build/repository --git-dir=/build/repository/.git checkout .
   git --work-tree=/build/repository --git-dir=/build/repository/.git pull
+  git -C /build/repository submodule update --init --recursive
 fi
 
 cd /build/repository || exit
-
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
 . $HOME/.cargo/env
 rustup override set stable
