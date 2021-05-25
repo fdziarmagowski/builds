@@ -3,7 +3,7 @@
 set -eux
 
 repository_url="https://github.com/alacritty/alacritty.git"
-branch="v0.5.0"
+branch="v0.7.2"
 
 export DEBIAN_FRONTEND="noninteractive"
 
