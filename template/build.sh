@@ -10,7 +10,7 @@ apt dist-upgrade -y
 apt install -y --no-install-recommends \
   build-essential \
   ca-certificates \
-  git \
+  git
 
 rm -rf /build/dist-inst
 
@@ -25,4 +25,4 @@ fi
 
 cd /build/repository || exit
 
-# <build system specific>
+make -j$(getconf _NPROCESSORS_ONLN)
